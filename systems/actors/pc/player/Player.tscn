@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://systems/actors/pc/player/weapon_pivot.gd" type="Script" id=1]
+[ext_resource path="res://systems/actors/pc/player/player_controller.gd" type="Script" id=2]
+[ext_resource path="res://systems/actors/pc/player/player.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 16.0063
+
+[node name="Player" type="KinematicBody2D" groups=[
+"Ally",
+"Player",
+]]
+script = ExtResource( 2 )
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+current = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 3 )
+
+[node name="WeaponPivot" type="Position2D" parent="."]
+script = ExtResource( 1 )
